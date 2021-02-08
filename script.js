@@ -510,3 +510,100 @@
 //console.log(kul);
 //kul.introduce();
 //kul.calcAge();
+
+//****************************************************
+// CLASS INHERITANCE - Object.create()
+//**************** 1 *********************************
+//const PersonProto = {
+//  calcAge() {
+//    console.log(new Date().getFullYear - this.birthYear);
+//  },
+
+//  init(firstName, birthYear) {
+//    this.firstName = firstName;
+//    this.birthYear = birthYear;
+//  },
+//};
+
+//const StudentProto = Object.create(PersonProto);
+
+//StudentProto.init = function (firstName, birthYear, course) {
+//  PersonProto.init.call(this, firstName, birthYear);
+//  this.course = course;
+//};
+
+//StudentProto.introduce = function () {
+//  console.log(
+//    `My name is ${this.firstName} and I'm a ${
+//      new Date().getFullYear() - this.birthYear
+//    } years old person...`
+//  );
+//};
+
+//const bendeniz = Object.create(StudentProto);
+
+//bendeniz.init('Ben Deniz', 1994, 'CS');
+
+//console.log(bendeniz);
+//bendeniz.introduce();
+
+//**************** 2 *********************************
+//const PersonProto = {
+//  calcAge() {
+//    console.log(`${new Date().getFullYear() - this.birthYear}`);
+//  },
+
+//  init(firstName, birthYear) {
+//    this.firstName = firstName;
+//    this.birthYear = birthYear;
+//  },
+//};
+
+//const StudentProto = Object.create(PersonProto);
+
+//StudentProto.init = function (firstName, birthYear, course) {
+//  PersonProto.init.call(this, firstName, birthYear);
+//  this.course = course;
+//};
+
+//StudentProto.introduce = function () {
+//  console.log(
+//    `My name is ${this.firstName} and my age is ${2021 - this.birthYear}`
+//  );
+//};
+
+//const newbee = Object.create(StudentProto);
+//newbee.init('İlyas', 1993, 'Computer Science');
+
+//console.log(newbee);
+//newbee.introduce();
+//newbee.calcAge();
+
+//**************** 3 *********************************
+//const PersonProto = {
+//  calcAge() {
+//    console.log(new Date().getFullYear() - this.birthYear);
+//  },
+
+//  init(firstName, birthYear) {
+//    this.firstName = firstName;
+//    this.birthYear = birthYear;
+//  },
+//};
+
+//const StudentProto = Object.create(PersonProto);
+//StudentProto.init = function (firstName, birthYear, course) {
+//  PersonProto.init.call(this, firstName, birthYear);
+//  this.course = course;
+//};
+
+//StudentProto.introduce = function () {
+//  console.log(`My name is ${this.firstName} and my age is ${this.birthYear}`);
+//};
+
+//const il = Object.create(StudentProto);
+//il.init('İlyas Usta', 1995, 'Data Science');
+
+//console.log(il);
+//il.introduce();
+//il.calcAge();
