@@ -19,32 +19,32 @@
 //console.log(cemal instanceof Person);
 
 // Prototypes - //
-class Car {
-  constructor(make, speed) {
-    this.make = make;
-    this.speed = speed;
-  }
+//class Car {
+//  constructor(make, speed) {
+//    this.make = make;
+//    this.speed = speed;
+//  }
 
-  accelerate() {
-    this.speed += 10;
-    console.log(`${this.make}'s speed is ${this.speed}`);
-  }
+//  accelerate() {
+//    this.speed += 10;
+//    console.log(`${this.make}'s speed is ${this.speed}`);
+//  }
 
-  brake() {
-    this.speed -= 5;
-    console.log(`${this.make}'s speed is ${this.speed}`);
-  }
+//  brake() {
+//    this.speed -= 5;
+//    console.log(`${this.make}'s speed is ${this.speed}`);
+//  }
 
-  get speedUS() {
-    return this.speed / 1.6;
-  }
+//  get speedUS() {
+//    return this.speed / 1.6;
+//  }
 
-  set speedUS(spd) {
-    this.speed = spd * 1.6;
-  }
-}
+//  set speedUS(spd) {
+//    this.speed = spd * 1.6;
+//  }
+//}
 
-const f = new Car('Ford', 300);
+//const f = new Car('Ford', 300);
 
 //f.accelerate();
 //f.accelerate();
@@ -65,9 +65,9 @@ const f = new Car('Ford', 300);
 //console.log(f.speed);
 //console.log(f.speed);
 
-//***********************************************
-// INHERETENCE BETWEEN CLASS CONSTRUCTORS
-//**************** 1 ****************************
+//****************************************************
+// INHERETENCE BETWEEN CLASS CONSTRUCTORS - 08.02.2021
+//**************** 1 *********************************
 //const Person = function (firstName, birthYear) {
 //  this.firstName = firstName;
 //  this.birthYear = birthYear;
@@ -169,3 +169,151 @@ const f = new Car('Ford', 300);
 //console.log(il instanceof Student);
 //console.log(il instanceof Person);
 //console.log(il instanceof Object);
+
+//***********************************************
+// CHALLANGE 3
+//**************** 1 ****************************
+//const Car = function (make, speed) {
+//  this.make = make;
+//  this.speed = speed;
+//};
+
+//Car.prototype.accelerate = function () {
+//  this.speed += 10;
+//  console.log(`${this.make} is going at ${this.speed} km/h speed`);
+//};
+
+//Car.prototype.brake = function () {
+//  this.speed -= 5;
+//  console.log(`${this.make} is going at ${this.speed} km/h speed`);
+//};
+
+//const EV = function (make, speed, charge) {
+//  Car.call(this, make, speed);
+//  this.charge = charge;
+//};
+
+//EV.prototype = Object.create(Car.prototype);
+
+//EV.prototype.chargeBattery = function (chargeTo) {
+//  this.charge = chargeTo;
+//};
+
+//EV.prototype.accelerate = function () {
+//  this.speed += 20;
+//  this.charge--;
+//  console.log(
+//    `${this.make} is going at ${this.speed} km/h, with a charge of ${this.charge}%`
+//  );
+//};
+
+//const tsla = new EV('Tesla', 120, 23);
+//console.log(tsla);
+
+//tsla.accelerate();
+//tsla.brake();
+//tsla.chargeBattery(93);
+//tsla.accelerate();
+
+//**************** 2 ****************************
+//const Car = function (make, speed) {
+//  this.make = make;
+//  this.speed = speed;
+//};
+
+//Car.prototype.accelerate = function () {
+//  this.speed += 10;
+//  console.log(`${this.make} is going at ${this.speed} km/h speed.`);
+//};
+
+//Car.prototype.brake = function () {
+//  this.speed -= 5;
+//  console.log(`${this.make} is going at ${this.speed} km/h speed.`);
+//};
+
+//const EV = function (make, speed, charge) {
+//  Car.call(this, make, speed);
+//  this.charge = charge;
+//};
+
+//EV.prototype = Object.create(Car.prototype);
+
+//EV.prototype.chargeBattery = function (chargeTo) {
+//  this.charge = chargeTo;
+//};
+
+//EV.prototype.accelerate = function () {
+//  this.speed += 20;
+//  this.charge--;
+//  console.log(
+//    `${this.make} is going at ${this.speed} km/h speed, with charge of ${this.charge}%`
+//  );
+//};
+
+//const tsla = new EV('Tesla', 120, 23);
+
+//console.log(tsla);
+
+//console.log(tsla.__proto__);
+//console.log(tsla.__proto__.__proto__);
+
+//console.log(tsla instanceof EV);
+//console.log(tsla instanceof Car);
+//console.log(tsla instanceof Object);
+
+//tsla.accelerate();
+//tsla.accelerate();
+//tsla.accelerate();
+//tsla.chargeBattery(93);
+//tsla.brake();
+//tsla.accelerate();
+
+//**************** 2 ****************************
+//const Car = function (make, speed) {
+//  this.make = make;
+//  this.speed = speed;
+//};
+
+//Car.prototype.accelerate = function () {
+//  this.speed += 10;
+//  console.log(`${this.make} is going at ${this.speed} km per hour.`);
+//};
+
+//Car.prototype.brake = function () {
+//  this.speed -= 5;
+//  console.log(`${this.make} is going at ${this.speed} km per hour.`);
+//};
+
+//const EV = function (make, speed, charge) {
+//  Car.call(this, make, speed);
+//  this.charge = charge;
+//};
+
+//EV.prototype = Object.create(Car.prototype);
+
+//EV.prototype.accelerate = function () {
+//  this.speed += 20;
+//  this.charge--;
+//  console.log(
+//    `${this.make} is going at ${this.speed} km/h speed, with charge of ${this.charge}`
+//  );
+//};
+
+//EV.prototype.chargeBattery = function (chargeTo) {
+//  this.charge = chargeTo;
+//};
+
+//const togg = new EV('TOGG', 140, 20);
+
+//console.log(togg);
+//console.log(togg.__proto__);
+//console.log(togg.__proto__.__proto__);
+
+//console.log(togg instanceof EV);
+//console.log(togg instanceof Car);
+//console.log(togg instanceof Object);
+
+//togg.accelerate();
+//togg.brake();
+//togg.chargeBattery(99);
+//togg.accelerate();
