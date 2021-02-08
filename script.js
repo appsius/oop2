@@ -1,6 +1,9 @@
 'use strict';
 
-//FIX - What is a first-class citizen functions
+//NOTE - What is a first-class citizen functions
+
+// NOTE -> polymorphism - when a method is not available in the current scope or __proto__ then it will look at the
+// outside or inner __proto__
 
 //const Person = function (firstName, birthYear) {
 //  this.name = firstName;
@@ -65,6 +68,7 @@
 //console.log(f.speed);
 //console.log(f.speed);
 
+// START
 //****************************************************
 // INHERETENCE BETWEEN CLASS CONSTRUCTORS - 08.02.2021
 //**************** 1 *********************************
@@ -317,3 +321,192 @@
 //togg.brake();
 //togg.chargeBattery(99);
 //togg.accelerate();
+
+//***********************************************
+// INHERITANCE BETWEEN CLASSES (E6)
+//**************** 1 ****************************
+//class Person {
+//  constructor(fullName, birthYear) {
+//    this.fullName = fullName;
+//    this.birthYear = birthYear;
+//  }
+
+//  calcAge() {
+//    console.log(2021 - this.birthYear);
+//  }
+
+//  greet() {
+//    console.log(`Hey ${this.fullName}`);
+//  }
+
+//  get fullName() {
+//    return this.fullName;
+//  }
+
+//  set fullName(name) {
+//    if (name.includes(' ')) this._fullName = name;
+//    else alert(`${name} does not include space..`);
+//  }
+
+//  get fullName() {
+//    return this._fullName;
+//  }
+
+//  static hey() {
+//    alert(`Hey ${this.fullName}`);
+//  }
+//}
+
+//class Student extends Person {
+//  constructor(fullName, birthYear, department) {
+//    super(fullName, birthYear);
+//    this.department = department;
+//  }
+
+//  introduce() {
+//    console.log(
+//      `My name is ${this.fullName} and I'm ${2021 - this.birthYear} old`
+//    );
+//  }
+
+//  calcAge() {
+//    console.log(
+//      `I'm ${
+//        2021 - this.birthYear
+//      } years old, even I'm a student I feel like a ${
+//        2021 - this.birthYear + 10
+//      } years old man.`
+//    );
+//  }
+//}
+
+//const ilyas = new Student('İlyas Usta', 1992, 'Computer Science');
+//console.log(ilyas);
+
+//ilyas.introduce();
+//ilyas.greet();
+//ilyas.calcAge();
+
+//**************** 2 ****************************
+//class Person {
+//  constructor(fullName, birthYear) {
+//    this.fullName = fullName;
+//    this.birthYear = birthYear;
+//  }
+
+//  calcAge() {
+//    console.log(2021 - this.birthYear);
+//  }
+
+//  greet() {
+//    console.log(`Hey ${this.fullName}`);
+//  }
+
+//  get age() {
+//    return new Date().getFullYear() - this.birthYear;
+//  }
+
+//  set fullName(name) {
+//    if (name.includes(' ')) this._fullName = name;
+//    else {
+//      this._fullName = 'nothingsOwner';
+//      alert(`${name} is not a full name!!`);
+//    }
+//  }
+
+//  get fullName() {
+//    return this._fullName;
+//  }
+//}
+
+//class Student extends Person {
+//  constructor(fullName, birthYear, depart) {
+//    super(fullName, birthYear);
+//    this.depart = depart;
+//  }
+
+//  introduce() {
+//    console.log(
+//      `My name is ${this.fullName} and I'm ${
+//        new Date().getFullYear() - this.birthYear
+//      } years old...`
+//    );
+//  }
+
+//  calcAge() {
+//    console.log(
+//      `I'm a ${
+//        new Date().getFullYear() - this.birthYear
+//      } years old Cezeri Code School ${this.depart} student...`
+//    );
+//  }
+//}
+
+//const ilyas = new Student('İlyas Usta', 1992, 'Computer Science');
+
+//console.log(ilyas);
+//ilyas.calcAge();
+//ilyas.introduce();
+
+//**************** 3 ****************************
+//class Person {
+//  constructor(fullName, birthYear) {
+//    this.fullName = fullName;
+//    this.birthYear = birthYear;
+//  }
+
+//  calcAge() {
+//    console.log(new Date().getFullYear() - this.birthYear);
+//  }
+
+//  greet() {
+//    console.log(`Merhaba ${this.fullName}`);
+//  }
+
+//  get age() {
+//    return new Date().getFullYear() - this.birthYear;
+//  }
+
+//  set fullName(name) {
+//    if (name.includes(' ')) this._fullName = name;
+//    else {
+//      this._fullName = 'nothingOwner';
+//      alert(`You comes with a name called ${this._fullName}`);
+//    }
+//  }
+
+//  get fullName() {
+//    return this._fullName;
+//  }
+
+//  static hey() {
+//    console.log('Merhaba Beyefendi...');
+//  }
+//}
+
+//class Student extends Person {
+//  constructor(fullName, birthYear, department) {
+//    super(fullName, birthYear);
+//    this.department = department;
+//  }
+
+//  introduce() {
+//    console.log(
+//      `My name is ${this.fullName} and I'm a junior third year developer...`
+//    );
+//  }
+
+//  calcAge() {
+//    console.log(
+//      `I'm a ${
+//        new Date().getFullYear() - this.birthYear
+//      } years old CC School student...`
+//    );
+//  }
+//}
+
+//const kul = new Student('Allah Dostu', 1994, 'Developlment');
+
+//console.log(kul);
+//kul.introduce();
+//kul.calcAge();
