@@ -615,9 +615,9 @@
 //il.calcAge();
 
 // START
-//****************************************************
-// Class Example, property protection - 09.02.2021
-//**************** 1 *********************************
+//***********************************************************************
+// Class Example, Property protection, Method Chaining - 09.02.2021
+//**************** 1 ****************************************************
 //class Account {
 //  //  Public fields (instances)
 //  locale = navigator.language;
@@ -640,10 +640,12 @@
 //  deposit(val) {
 //    this.#movements.push(val);
 //    console.log(this.#movements);
+//    return this;
 //  }
 
 //  withdraw(val) {
 //    this.deposit(-val);
+//    return this;
 //  }
 
 //  _approveLoan(val) {
@@ -655,6 +657,7 @@
 //    if (this._approveLoan(val)) {
 //      this.deposit(val);
 //      console.log(`${val} loan approved...`);
+//      return this;
 //    }
 //  }
 
@@ -678,8 +681,10 @@
 //console.log(ilyas.getMovements());
 //Account.helper();
 
-//console.log(ilyas.#pin);
-//ilyas.#approveLoan();
+//ilyas.deposit(300).deposit(100).loanRequest(20000).withdraw(400).withdraw(500);
+
+////console.log(ilyas.#pin);
+////ilyas.#approveLoan();
 
 //**************** 2 *********************************
 //class Account {
@@ -704,10 +709,12 @@
 //  deposit(val) {
 //    this.#movements.push(val);
 //    console.log(this.#movements);
+//    return this;
 //  }
 
 //  withdraw(val) {
 //    this.deposit(-val);
+//    return this;
 //  }
 
 //  reqLoan(val) {
@@ -735,11 +742,12 @@
 //agaAhmet.withdraw(444);
 //agaAhmet.reqLoan(111);
 //console.log(agaAhmet.getMovements());
-
-//console.log(agaAhmet.#movements);
-//agaAhmet.#approveLoan();
-
 //Account.helper();
+
+////console.log(agaAhmet.#movements);
+////agaAhmet.#approveLoan();
+
+//agaAhmet.deposit(300).deposit(100).withdraw(400).withdraw(40).reqLoan(5000);
 
 //**************** 3 *********************************
 //class Account {
@@ -764,15 +772,18 @@
 //  deposit(val) {
 //    this.#movements.push(val);
 //    console.log(this.#movements);
+//    return this;
 //  }
 
 //  withdraw(val) {
 //    this.deposit(-val);
+//    return this;
 //  }
 
 //  reqLoan(val) {
 //    if (this.#approveLoan(val)) this.deposit(val);
 //    console.log(`Loan (${val}) is approved...`);
+//    return this;
 //  }
 
 //  // Private methods
@@ -792,5 +803,6 @@
 //hll.withdraw(2222);
 //hll.reqLoan(3333);
 //console.log(hll.getMovements());
-
 //Account.helper();
+
+//hll.deposit(100).deposit(200).withdraw(400).reqLoan(500).withdraw(50);
