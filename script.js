@@ -618,24 +618,28 @@
 //****************************************************
 // Class Example, property protection - 09.02.2021
 //**************** 1 *********************************
-
 //class Account {
+//  //  Public fields (instances)
+//  locale = navigator.language;
+
+//  //  Private fileds (instances)
+//  #movements = [];
+//  #pin;
+
 //  constructor(owner, currency, pin, locale) {
 //    this.owner = owner;
 //    this.currency = currency;
-//    this.locale = navigator.language;
-//    // Protected properties
-//    this._pin = pin;
-//    this._movements = [];
+//    this.#pin = pin;
 //  }
 
+//  //  Public methods
 //  getMovements() {
-//    return this._movements;
+//    return this.#movements;
 //  }
 
 //  deposit(val) {
-//    this._movements.push(val);
-//    console.log(this._movements);
+//    this.#movements.push(val);
+//    console.log(this.#movements);
 //  }
 
 //  withdraw(val) {
@@ -647,55 +651,80 @@
 //  }
 
 //  loanRequest(val) {
+//    //if (this.#approveLoan(val)) {
 //    if (this._approveLoan(val)) {
 //      this.deposit(val);
 //      console.log(`${val} loan approved...`);
 //    }
+//  }
+
+//  //  Private methods
+//  #approveLoan(val) {
+//    return true;
+//  }
+
+//  //Static methods
+//  static helper() {
+//    console.log('Helper...');
 //  }
 //}
 
 //const ilyas = new Account('İlyas', 'TRY', 1111);
 
 //console.log(ilyas);
-
 //ilyas.deposit(100);
 //ilyas.withdraw(30);
 //ilyas.loanRequest(4000);
 //console.log(ilyas.getMovements());
+//Account.helper();
+
+//console.log(ilyas.#pin);
+//ilyas.#approveLoan();
 
 //**************** 2 *********************************
 //class Account {
-//  constructor(owner, curreny, pin, locale) {
+//  //Public fields (instances)
+//  locale = navigator.language;
+
+//  //Private fields (instances)
+//  #movements = [];
+//  #pin;
+
+//  constructor(owner, curreny, pin) {
 //    this.owner = owner;
 //    this.curreny = curreny;
-//    this.locale = navigator.language;
-//    // Protected properties
-//    this._pin = pin;
-//    this._movements = [];
+//    this.#pin = pin;
 //  }
 
+//  // Public methods
 //  getMovements() {
-//    return this._movements;
+//    return this.#movements;
 //  }
 
 //  deposit(val) {
-//    this._movements.push(val);
-//    console.log(this._movements);
+//    this.#movements.push(val);
+//    console.log(this.#movements);
 //  }
 
 //  withdraw(val) {
 //    this.deposit(-val);
 //  }
 
-//  _approveLoan(val) {
-//    return true;
-//  }
-
 //  reqLoan(val) {
-//    if (this._approveLoan(val)) {
+//    if (this.#approveLoan(val)) {
 //      this.deposit(val);
 //      console.log(`${val} (loan) is approved...`);
 //    }
+//  }
+
+//  // Private methods
+//  #approveLoan(val) {
+//    return true;
+//  }
+
+//  // Static methods
+//  static helper() {
+//    console.log('Helper...');
 //  }
 //}
 
@@ -707,37 +736,52 @@
 //agaAhmet.reqLoan(111);
 //console.log(agaAhmet.getMovements());
 
+//console.log(agaAhmet.#movements);
+//agaAhmet.#approveLoan();
+
+//Account.helper();
+
 //**************** 3 *********************************
 //class Account {
-//  constructor(owner, currency, pin, locale) {
+//  // Public fields (instances)
+//  locale = navigator.language;
+
+//  // Private fieilds (instances)
+//  #movements = [];
+//  #pin;
+
+//  constructor(owner, currency, pin) {
 //    this.owner = owner;
 //    this.currency = currency;
-//    this.locale = navigator.language;
-//    // Property protection
-//    this._pin = pin;
-//    this._movements = [];
+//    this.#pin = pin;
 //  }
 
+//  // Public methods
 //  getMovements() {
-//    return this._movements;
+//    return this.#movements;
 //  }
 
 //  deposit(val) {
-//    this._movements.push(val);
-//    console.log(this._movements);
+//    this.#movements.push(val);
+//    console.log(this.#movements);
 //  }
 
 //  withdraw(val) {
 //    this.deposit(-val);
 //  }
 
-//  _approveLoan(val) {
+//  reqLoan(val) {
+//    if (this.#approveLoan(val)) this.deposit(val);
+//    console.log(`Loan (${val}) is approved...`);
+//  }
+
+//  // Private methods
+//  #approveLoan(val) {
 //    return true;
 //  }
 
-//  reqLoan(val) {
-//    if (this._approveLoan(val)) this.deposit(val);
-//    console.log(`Loan (${val}) is approved...`);
+//  static helper() {
+//    console.log('Helper!');
 //  }
 //}
 
@@ -748,3 +792,5 @@
 //hll.withdraw(2222);
 //hll.reqLoan(3333);
 //console.log(hll.getMovements());
+
+//Account.helper();
