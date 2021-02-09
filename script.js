@@ -607,3 +607,83 @@
 //console.log(il);
 //il.introduce();
 //il.calcAge();
+
+// START
+//****************************************************
+// Class Example - 09.02.2021
+//**************** 1 *********************************
+//**************** 3 *********************************
+
+//class Account {
+//  constructor(owner, currency, pin) {
+//    this.owner = owner;
+//    this.currency = currency;
+//    this.pin = pin;
+//    this.movements = [];
+//  }
+
+//  deposit(val) {
+//    this.movements.push(val);
+//    console.log(this.movements);
+//  }
+
+//  withdraw(val) {
+//    this.deposit(-val);
+//  }
+
+//  approveLoan(val) {
+//    return true;
+//  }
+
+//  loanRequest(val) {
+//    if (this.approveLoan(val)) {
+//      this.deposit(val);
+//      console.log(`${val} loan approved...`);
+//    }
+//  }
+//}
+
+//const ilyas = new Account('İlyas', 'TRY', 1111);
+
+//console.log(ilyas);
+//ilyas.deposit(100);
+//ilyas.withdraw(30);
+
+//ilyas.loanRequest(4000);
+
+//**************** 2 *********************************
+class Account {
+  constructor(owner, curreny, pin) {
+    this.owner = owner;
+    this.curreny = curreny;
+    this.pin = pin;
+    this.movements = [];
+  }
+
+  deposit(val) {
+    this.movements.push(val);
+    console.log(this.movements);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  approveLoan(val) {
+    return true;
+  }
+
+  reqLoan(val) {
+    if (this.approveLoan(val)) {
+      this.deposit(val);
+      console.log(`${val} (loan) is approved...`);
+    }
+  }
+}
+
+const agaAhmet = new Account('Ahmet', 'TRY', 2222);
+
+console.log(agaAhmet);
+agaAhmet.deposit(333);
+agaAhmet.withdraw(444);
+agaAhmet.reqLoan(111);
