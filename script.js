@@ -612,7 +612,6 @@
 //****************************************************
 // Class Example - 09.02.2021
 //**************** 1 *********************************
-//**************** 3 *********************************
 
 //class Account {
 //  constructor(owner, currency, pin) {
@@ -652,10 +651,47 @@
 //ilyas.loanRequest(4000);
 
 //**************** 2 *********************************
+//class Account {
+//  constructor(owner, curreny, pin) {
+//    this.owner = owner;
+//    this.curreny = curreny;
+//    this.pin = pin;
+//    this.movements = [];
+//  }
+
+//  deposit(val) {
+//    this.movements.push(val);
+//    console.log(this.movements);
+//  }
+
+//  withdraw(val) {
+//    this.deposit(-val);
+//  }
+
+//  approveLoan(val) {
+//    return true;
+//  }
+
+//  reqLoan(val) {
+//    if (this.approveLoan(val)) {
+//      this.deposit(val);
+//      console.log(`${val} (loan) is approved...`);
+//    }
+//  }
+//}
+
+//const agaAhmet = new Account('Ahmet', 'TRY', 2222);
+
+//console.log(agaAhmet);
+//agaAhmet.deposit(333);
+//agaAhmet.withdraw(444);
+//agaAhmet.reqLoan(111);
+
+//**************** 3 *********************************
 class Account {
-  constructor(owner, curreny, pin) {
+  constructor(owner, currency, pin) {
     this.owner = owner;
-    this.curreny = curreny;
+    this.currency = currency;
     this.pin = pin;
     this.movements = [];
   }
@@ -674,16 +710,15 @@ class Account {
   }
 
   reqLoan(val) {
-    if (this.approveLoan(val)) {
-      this.deposit(val);
-      console.log(`${val} (loan) is approved...`);
-    }
+    if (this.approveLoan(val)) this.deposit(val);
+    console.log(`Loan (${val}) is approved...`);
   }
 }
 
-const agaAhmet = new Account('Ahmet', 'TRY', 2222);
+const hll = new Account('Hll', 'TRY', 3333);
+console.log(hll);
 
-console.log(agaAhmet);
-agaAhmet.deposit(333);
-agaAhmet.withdraw(444);
-agaAhmet.reqLoan(111);
+hll.deposit(5555);
+hll.withdraw(2222);
+hll.approveLoan(3333);
+hll.reqLoan(3333);
