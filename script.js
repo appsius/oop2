@@ -1,9 +1,15 @@
 'use strict';
 
-//NOTE - What is a first-class citizen functions
+//NOTE NOTE NOTE NOTE NOTE
 
-// NOTE -> polymorphism - when a method is not available in the current scope or __proto__ then it will look at the
+// What is a first-class citizen functions
+
+// polymorphism - when a method is not available in the current scope or __proto__ then it will look at the
 // outside or inner __proto__
+
+// data encapsulation and privacy
+
+//NOTE NOTE NOTE NOTE NOTE
 
 //const Person = function (firstName, birthYear) {
 //  this.name = firstName;
@@ -610,32 +616,38 @@
 
 // START
 //****************************************************
-// Class Example - 09.02.2021
+// Class Example, property protection - 09.02.2021
 //**************** 1 *********************************
 
 //class Account {
-//  constructor(owner, currency, pin) {
+//  constructor(owner, currency, pin, locale) {
 //    this.owner = owner;
 //    this.currency = currency;
-//    this.pin = pin;
-//    this.movements = [];
+//    this.locale = navigator.language;
+//    // Protected properties
+//    this._pin = pin;
+//    this._movements = [];
+//  }
+
+//  getMovements() {
+//    return this._movements;
 //  }
 
 //  deposit(val) {
-//    this.movements.push(val);
-//    console.log(this.movements);
+//    this._movements.push(val);
+//    console.log(this._movements);
 //  }
 
 //  withdraw(val) {
 //    this.deposit(-val);
 //  }
 
-//  approveLoan(val) {
+//  _approveLoan(val) {
 //    return true;
 //  }
 
 //  loanRequest(val) {
-//    if (this.approveLoan(val)) {
+//    if (this._approveLoan(val)) {
 //      this.deposit(val);
 //      console.log(`${val} loan approved...`);
 //    }
@@ -645,35 +657,42 @@
 //const ilyas = new Account('İlyas', 'TRY', 1111);
 
 //console.log(ilyas);
+
 //ilyas.deposit(100);
 //ilyas.withdraw(30);
-
 //ilyas.loanRequest(4000);
+//console.log(ilyas.getMovements());
 
 //**************** 2 *********************************
 //class Account {
-//  constructor(owner, curreny, pin) {
+//  constructor(owner, curreny, pin, locale) {
 //    this.owner = owner;
 //    this.curreny = curreny;
-//    this.pin = pin;
-//    this.movements = [];
+//    this.locale = navigator.language;
+//    // Protected properties
+//    this._pin = pin;
+//    this._movements = [];
+//  }
+
+//  getMovements() {
+//    return this._movements;
 //  }
 
 //  deposit(val) {
-//    this.movements.push(val);
-//    console.log(this.movements);
+//    this._movements.push(val);
+//    console.log(this._movements);
 //  }
 
 //  withdraw(val) {
 //    this.deposit(-val);
 //  }
 
-//  approveLoan(val) {
+//  _approveLoan(val) {
 //    return true;
 //  }
 
 //  reqLoan(val) {
-//    if (this.approveLoan(val)) {
+//    if (this._approveLoan(val)) {
 //      this.deposit(val);
 //      console.log(`${val} (loan) is approved...`);
 //    }
@@ -686,39 +705,46 @@
 //agaAhmet.deposit(333);
 //agaAhmet.withdraw(444);
 //agaAhmet.reqLoan(111);
+//console.log(agaAhmet.getMovements());
 
 //**************** 3 *********************************
-class Account {
-  constructor(owner, currency, pin) {
-    this.owner = owner;
-    this.currency = currency;
-    this.pin = pin;
-    this.movements = [];
-  }
+//class Account {
+//  constructor(owner, currency, pin, locale) {
+//    this.owner = owner;
+//    this.currency = currency;
+//    this.locale = navigator.language;
+//    // Property protection
+//    this._pin = pin;
+//    this._movements = [];
+//  }
 
-  deposit(val) {
-    this.movements.push(val);
-    console.log(this.movements);
-  }
+//  getMovements() {
+//    return this._movements;
+//  }
 
-  withdraw(val) {
-    this.deposit(-val);
-  }
+//  deposit(val) {
+//    this._movements.push(val);
+//    console.log(this._movements);
+//  }
 
-  approveLoan(val) {
-    return true;
-  }
+//  withdraw(val) {
+//    this.deposit(-val);
+//  }
 
-  reqLoan(val) {
-    if (this.approveLoan(val)) this.deposit(val);
-    console.log(`Loan (${val}) is approved...`);
-  }
-}
+//  _approveLoan(val) {
+//    return true;
+//  }
 
-const hll = new Account('Hll', 'TRY', 3333);
-console.log(hll);
+//  reqLoan(val) {
+//    if (this._approveLoan(val)) this.deposit(val);
+//    console.log(`Loan (${val}) is approved...`);
+//  }
+//}
 
-hll.deposit(5555);
-hll.withdraw(2222);
-hll.approveLoan(3333);
-hll.reqLoan(3333);
+//const hll = new Account('Hll', 'TRY', 3333);
+//console.log(hll);
+
+//hll.deposit(5555);
+//hll.withdraw(2222);
+//hll.reqLoan(3333);
+//console.log(hll.getMovements());
